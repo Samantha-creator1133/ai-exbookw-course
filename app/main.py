@@ -27,6 +27,15 @@ async def age_command(message: Message) -> None:
     await message.answer("Вікові обмеження відсутні.")
 
 
+@dp.message(Command("about"))
+async def about_command(message: Message) -> None:
+    await message.answer(
+        "Підбір книг за бажаними ключовими словами (наприклад: ліс, таємниця, міфи), "
+        "настроєм (сумний, веселий, загадковий, злий і т.д.) та жанром "
+        "(роман, детектив, психологія, історія і т.д.)."
+    )
+
+
 async def main() -> None:
     token = os.getenv("BOT_TOKEN")
     if not token:
