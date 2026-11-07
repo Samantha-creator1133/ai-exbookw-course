@@ -34,11 +34,13 @@ def load_env_file() -> None:
 
 @dp.message(CommandStart())
 async def start(message: Message) -> None:
+    logging.info("Користувач викликав /start")
     await message.answer("Привіт! Радий тебе бачити 👋")
 
 
 @dp.message(Command("help"))
 async def help_command(message: Message) -> None:
+    logging.info("Користувачу треба /help")
     await message.answer(
         "Я книжковий бот і допомагаю знаходити книги за настроєм та вподобаннями."
     )
@@ -46,16 +48,23 @@ async def help_command(message: Message) -> None:
 
 @dp.message(Command("age"))
 async def age_command(message: Message) -> None:
+    logging.info("Користувачу цікаво щодо /age")
     await message.answer("Вікові обмеження відсутні.")
 
 
 @dp.message(Command("about"))
 async def about_command(message: Message) -> None:
+    logging.info("Користувачу цікаво /about")
     await message.answer(
         "Підбір книг за бажаними ключовими словами (наприклад: ліс, таємниця, міфи), "
         "настроєм (сумний, веселий, загадковий, злий і т.д.) та жанром "
         "(роман, детектив, психологія, історія і т.д.)."
     )
+
+
+@dp.message()
+async def unknown_message(message: Message) -> None:
+    logging.info("Невідоме повідомлення!")
 
 
 async def main() -> None:
