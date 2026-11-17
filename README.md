@@ -36,13 +36,13 @@ python -m app.main
 
 ## Запуск через Docker
 
-Переконайтеся, що Docker Desktop запущений і `.env` містить дійсний `BOT_TOKEN`. З кореня проєкту виконайте:
+Переконайтеся, що Docker Desktop запущений, а `.env` у корені проєкту містить дійсний `BOT_TOKEN` і `DATABASE_URL`. З кореня проєкту виконайте:
 
 ```bash
 docker compose up --build
 ```
 
-Команда збере образ за `Dockerfile` і запустить бота. Логи відображатимуться в терміналі; зупинка — `Ctrl+C`. Для запуску у фоні скористайтеся `docker compose up --build -d`, а для зупинки — `docker compose down`.
+Команда збере й запустить Telegram-бота, API та React-фронтенд. Відкрийте фронтенд за адресою [http://localhost:3000](http://localhost:3000). Фронтенд звертається до API через Nginx-проксі, а API читає дані з Neon. Логи відображатимуться в терміналі; зупинка — `Ctrl+C`. Для запуску у фоні скористайтеся `docker compose up --build -d`, а для зупинки — `docker compose down`.
 
 ### Hot reload
 
